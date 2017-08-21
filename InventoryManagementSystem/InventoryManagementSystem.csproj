@@ -71,11 +71,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMSData.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IMSData.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,9 +79,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="IMSData.dbml.layout">
-      <DependentUpon>IMSData.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,11 +93,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
-    <None Include="IMSData.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>IMSData.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="MyDatabase.sqlite">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
