@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SQLite;
 
 namespace InventoryManagementSystem
 {
-    public partial class Login : Form
+    public partial class Login :  Form
     {
 
         string dbPath = @"MyDatabase";//链接基本数据库
