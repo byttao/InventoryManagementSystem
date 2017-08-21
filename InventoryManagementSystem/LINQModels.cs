@@ -20,7 +20,7 @@ namespace InventoryManagementSystem
         {
         }
         public SqliteDataContext(string connectionString) :
-            base(new SQLiteConnection(@"Data Source=" + connectionString + @".sqlite;Version=3;"))
+            base(new SQLiteConnection(@"Data Source=" + connectionString + @".db;Version=3;"))
         {
         }
         public SqliteDataContext(IDbConnection connection) :
@@ -40,7 +40,7 @@ namespace InventoryManagementSystem
         public string userpassword { get; set; }
     }
 
-    [Table(Name = "Accounts")]  //特性表示将highscores类与数据库中名称为highscores的表
+    [Table(Name = "Accounts")]  //特性表示将账套存放的表格
     public class Accounts
     {
         //[Column(IsPrimaryKey =true)]

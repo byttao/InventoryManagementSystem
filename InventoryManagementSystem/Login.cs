@@ -23,7 +23,10 @@ namespace InventoryManagementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (comboBox1.SelectedIndex != -1)
+            {
+                
+            }
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -39,8 +42,7 @@ namespace InventoryManagementSystem
             {
                 using (SqliteDataContext dc = new SqliteDataContext(dbPath))
                 {
-                    var user = dc.GetTable<Users>().ToList();
-                    var query = user.AsQueryable().Where(u => u.username == textBox1.Text).Select(u => u);
+                    var query = dc.GetTable<Users>().Where(u => u.username == textBox1.Text).Select(u => u);
                     foreach (var u in query)
                     {
                         if (u.userpassword == textBox2.Text)
