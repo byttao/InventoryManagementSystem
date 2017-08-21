@@ -84,11 +84,12 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(20, 118);
+            this.label1.Location = new System.Drawing.Point(20, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(82, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "选择账套：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -98,11 +99,12 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(20, 43);
+            this.label2.Location = new System.Drawing.Point(20, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 17);
+            this.label2.Size = new System.Drawing.Size(83, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "用 户 名：";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -112,11 +114,12 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(20, 81);
+            this.label3.Location = new System.Drawing.Point(19, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 17);
+            this.label3.Size = new System.Drawing.Size(84, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "密    码：";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -138,17 +141,19 @@
             this.textBox2.PasswordChar = '¤';
             this.textBox2.Size = new System.Drawing.Size(254, 25);
             this.textBox2.TabIndex = 2;
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(20, 162);
+            this.label4.Location = new System.Drawing.Point(20, 169);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 25);
+            this.label4.Size = new System.Drawing.Size(82, 15);
             this.label4.TabIndex = 3;
             this.label4.Text = "选择日期：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,7 +199,7 @@
             this.MaximumSize = new System.Drawing.Size(443, 351);
             this.MinimumSize = new System.Drawing.Size(443, 351);
             this.Name = "Login";
-            this.Opacity = 0.8D;
+            this.Opacity = 0.9D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
