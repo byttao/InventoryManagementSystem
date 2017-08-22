@@ -22,12 +22,17 @@ namespace InventoryManagementSystem
         {
             if (comboBox1.SelectedIndex != -1)
             {
-                
+                Properties.Settings.Default.NowAcc = comboBox1.SelectedIndex+1;
+                //MainParent MP = new MainParent();
+                //MP.Show();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
 
         private void Cancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -52,7 +57,11 @@ namespace InventoryManagementSystem
                 }
             }
         }
-        
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
+        }
     }
 
 
