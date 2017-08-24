@@ -64,4 +64,41 @@ namespace InventoryManagementSystem
         public string DZ地址 { get; set; }
     }
 
+    [Table(Name = "JXFP进项发票")]
+    public class JXFP进项发票
+    {
+        [Column]
+        public int XH序号 { get; set; }
+
+        [Column]
+        public string FPDM发票代码 { get; set; }
+
+        [Column]
+        public string FPHM发票号码 { get; set; }
+
+        [Column]
+        public string SH税号 { get; set; }
+
+        [Column]
+        public DateTime KPSJ开票时间 { get; set; }
+
+        [Column]
+        public decimal JE金额 { get; set; }
+
+        [Column]
+        public decimal SE税额 { get; set; }
+
+        [Column]
+        public DateTime RZSJ认证时间 { get; set; }
+
+        [Column]
+        public string MC名称 { get; set; }
+
+        [Column]
+        public int LX类型 { get; set; }
+
+        [Column]
+        public string RKDH入库单号 { get; set; }
+    }
+
 }
