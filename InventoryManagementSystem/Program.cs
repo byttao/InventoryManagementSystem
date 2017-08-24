@@ -15,7 +15,7 @@ namespace InventoryManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainParent());
+            Application.Run(new FPimport());
         }
     }
 }

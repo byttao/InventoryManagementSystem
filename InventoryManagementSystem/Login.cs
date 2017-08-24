@@ -22,7 +22,7 @@ namespace InventoryManagementSystem
         {
             if (comboBox1.SelectedIndex != -1)
             {
-                Properties.Settings.Default.NowAcc = comboBox1.SelectedIndex+1;
+                Properties.Settings.Default.NowAcc = int.Parse(comboBox1.SelectedValue.ToString());
                 //MainParent MP = new MainParent();
                 //MP.Show();
                 this.DialogResult = DialogResult.OK;
@@ -44,13 +44,15 @@ namespace InventoryManagementSystem
             {
                 using (SqliteDataContext dc = new SqliteDataContext(dbPath))
                 {
-                    var query = dc.GetTable<Users>().Where(u => u.username == textBox1.Text).Select(u => u);
+                    var query = dc.GetTable<YH用户>().Where(u => u.YHMC用户名称 == textBox1.Text).Select(u => u);
                     foreach (var u in query)
                     {
-                        if (u.userpassword == textBox2.Text)
+                        if (u.YHMM用户密码 == textBox2.Text)
                         {
-                            var accounts = (from c in dc.GetTable<Accounts>() select c.name).ToList();
+                            var accounts = (from c in dc.GetTable<ZT账套>() select c).ToList();
                             comboBox1.DataSource = accounts;
+                            comboBox1.DisplayMember = "MC名称";
+                            comboBox1.ValueMember = "XH序号";
                             return;
                         }
                     }
@@ -60,7 +62,7 @@ namespace InventoryManagementSystem
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+            MessageBox.Show(String.Format("{0:N2}", Byte.MaxValue % 100)); //C#
         }
     }
 

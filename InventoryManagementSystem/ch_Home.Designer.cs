@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,29 +55,29 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(679, 360);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(116, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 119);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "入库单";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(342, 119);
+            this.label2.Location = new System.Drawing.Point(342, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 119);
+            this.label2.Size = new System.Drawing.Size(107, 120);
             this.label2.TabIndex = 2;
             this.label2.Text = "出库单";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(116, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 120);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "入库单";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ch_Home
             // 

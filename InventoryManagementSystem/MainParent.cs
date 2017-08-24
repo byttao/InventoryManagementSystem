@@ -25,10 +25,10 @@ namespace InventoryManagementSystem
             dbPath = dbPath + i.ToString("000");
             using (SqliteDataContext dc = new SqliteDataContext("MyDatabase"))
             {
-                var query = dc.GetTable<Accounts>().Where(u => u.ID == i).Select(u => u);
+                var query = dc.GetTable<ZT账套>().Where(u => u.XH序号 == i).Select(u => u);
                 foreach (var u in query)
                 {
-                    toolStripStatusLabel.Text = "账套：" + u.name;
+                    toolStripStatusLabel.Text = "账套：" + u.MC名称;
                 }
             }
             ch_Home home = new ch_Home();
