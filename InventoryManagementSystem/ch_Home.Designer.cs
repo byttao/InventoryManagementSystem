@@ -66,6 +66,7 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "出库单";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -78,6 +79,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "入库单";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ch_Home
             // 

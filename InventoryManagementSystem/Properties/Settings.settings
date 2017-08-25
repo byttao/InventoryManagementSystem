@@ -5,5 +5,8 @@
     <Setting Name="NowAcc" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="Accname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IMS001</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

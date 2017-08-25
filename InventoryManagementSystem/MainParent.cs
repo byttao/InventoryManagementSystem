@@ -12,7 +12,7 @@ namespace InventoryManagementSystem
     public partial class MainParent : Form
     {
         private int childFormNumber = 0;
-        string dbPath = @"IMS";//链接对应数据库
+        string dbPath = Properties.Settings.Default.Accname;//链接对应数据库
 
         public MainParent()
         {
@@ -22,7 +22,6 @@ namespace InventoryManagementSystem
                 return;
             }
             int i = Properties.Settings.Default.NowAcc;
-            dbPath = dbPath + i.ToString("000");
             using (SqliteDataContext dc = new SqliteDataContext("MyDatabase"))
             {
                 var query = dc.GetTable<ZT账套>().Where(u => u.XH序号 == i).Select(u => u);

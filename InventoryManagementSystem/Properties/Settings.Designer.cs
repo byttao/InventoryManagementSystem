@@ -34,5 +34,17 @@ namespace InventoryManagementSystem.Properties {
                 this["NowAcc"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("IMS001")]
+        public string Accname {
+            get {
+                return ((string)(this["Accname"]));
+            }
+            set {
+                this["Accname"] = value;
+            }
+        }
     }
 }

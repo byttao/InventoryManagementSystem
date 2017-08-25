@@ -15,22 +15,22 @@ using System.Data.Common;
 
 namespace InventoryManagementSystem
 {
-    public partial class FPimport : Form
+    public partial class XFPimport : Form
     {
-        DataTable dt = new DataTable("认证发票");
+        DataTable dt = new DataTable("销项发票");
         private string 账套名 = Properties.Settings.Default.Accname;
-        public FPimport()
+        public XFPimport()
         {
             InitializeComponent();
             dt.Columns.Add("发票代码", typeof(string));
             dt.Columns.Add("发票号码", typeof(string));
-            dt.Columns.Add("认证方纳税人识别号", typeof(string));
-            dt.Columns.Add("销售方纳税人识别号", typeof(string));
+            dt.Columns.Add("购货方识别号", typeof(string));
+            dt.Columns.Add("销售方识别号", typeof(string));
             dt.Columns.Add("开票日期", typeof(DateTime));
             dt.Columns.Add("金额", typeof(decimal));
             dt.Columns.Add("税额", typeof(decimal));
-            dt.Columns.Add("认证时间", typeof(DateTime));
-            dt.Columns.Add("发票类别", typeof(string));
+            dt.Columns.Add("报送时间", typeof(DateTime));
+            dt.Columns.Add("作废标志", typeof(string));
         }
 
         private void buttonEdit1_Click(object sender, EventArgs e)
@@ -69,23 +69,23 @@ namespace InventoryManagementSystem
             //获取Excel的最大行数
             int rowsCount = sheet.PhysicalNumberOfRows;
             dt.Rows.Clear();
-            for (int i = 4; i < rowsCount; i++)
+            for (int i = 5; i < rowsCount; i++)
             {
                 IRow row = sheet.GetRow(i);
                 DataRow dr = dt.NewRow();
-                dr[0] = row.GetCell(0).ToString();//发票代码
-                dr[1] = row.GetCell(1).ToString();//发票号码
-                dr[2] = row.GetCell(2).ToString();//购货方识别号
-                dr[3] = row.GetCell(3).ToString();//销售方识别号
-                dr[4] = DateTime.ParseExact(row.GetCell(4).ToString(), "yyyyMMdd",
+                dr[0] = row.GetCell(1).ToString();//发票代码
+                dr[1] = row.GetCell(2).ToString();//发票号码
+                dr[2] = row.GetCell(3).ToString();//购货方识别号
+                dr[3] = row.GetCell(4).ToString();//销售方识别号
+                dr[4] = DateTime.ParseExact(row.GetCell(5).ToString().Substring(0,10), "yyyy-MM-dd",
                     new System.Globalization.CultureInfo("zh-CN"), System.Globalization.DateTimeStyles.AllowWhiteSpaces);
                 //开票日期
-                dr[5] = decimal.Parse(row.GetCell(5).ToString());//金额
-                dr[6] = decimal.Parse(row.GetCell(6).ToString());//税额
-                dr[7] = DateTime.ParseExact(row.GetCell(7).ToString(), "yyyyMMdd",
+                dr[5] = decimal.Parse(row.GetCell(6).ToString());//金额
+                dr[6] = decimal.Parse(row.GetCell(7).ToString());//税额
+                dr[7] = DateTime.ParseExact(row.GetCell(8).ToString().Substring(0, 10), "yyyy-MM-dd",
                     new System.Globalization.CultureInfo("zh-CN"), System.Globalization.DateTimeStyles.AllowWhiteSpaces);
-                //认证时间
-                dr[8] = row.GetCell(8).ToString();//发票类型
+                //报送时间
+                dr[8] = row.GetCell(9).ToString();//作废标志
                 dt.Rows.Add(dr);
             }
             gridControl1.DataSource = dt;
@@ -108,21 +108,29 @@ namespace InventoryManagementSystem
             int xhmax=0;
             using (SqliteDataContext dc = new SqliteDataContext(账套名))
             {
-                if (dc.GetTable<JXFP进项发票>().Count() > 0)
+                if (dc.GetTable<XXFP销项发票>().Count() > 0)
                 {
-                    var query = dc.GetTable<JXFP进项发票>().Max(p => p.XH序号);
+                    var query = dc.GetTable<XXFP销项发票>().Max(p => p.XH序号);
                     xhmax = query;
                 }
             }
-            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source="+ 账套名 + ".db;Version=3;");
+            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source="+ 账套名 +".db;Version=3;");
             m_dbConnection.Open();
             DbTransaction trans = m_dbConnection.BeginTransaction();
+            int k = 1;
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                string sql = "insert into JXFP进项发票 (XH序号,FPDM发票代码,FPHM发票号码,SH税号,KPSJ开票时间,JE金额,SE税额,RZSJ认证时间) values "+
-                    "( "+ (xhmax+i+1) +", '"+ dt.Rows[i][0] + "', '"+ dt.Rows[i][1] + "', '"+ dt.Rows[i][3] + "', '"+ dt.Rows[i][4] + "', "+ dt.Rows[i][5] +" , "+ dt.Rows[i][6] + ", '"+ dt.Rows[i][7] + "')";
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                command.ExecuteNonQuery();
+                if (dt.Rows[i][8].ToString() == "否")
+                {
+                    string sql =
+                        "insert into XXFP销项发票 (XH序号,FPDM发票代码,FPHM发票号码,SH税号,KPSJ开票时间,JE金额,SE税额,BSSJ报送时间) values " +
+                        "( " + (xhmax + k ) + ", '" + dt.Rows[i][0] + "', '" + dt.Rows[i][1] + "', '" + dt.Rows[i][3] +
+                        "', '" + dt.Rows[i][4] + "', " + dt.Rows[i][5] + " , " + dt.Rows[i][6] + ", '" + dt.Rows[i][7] +
+                        "')";
+                    SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                    command.ExecuteNonQuery();
+                    k++;
+                }
             }
             trans.Commit();
             MessageBox.Show("发票导入成功！");

@@ -23,6 +23,7 @@ namespace InventoryManagementSystem
             if (comboBox1.SelectedIndex != -1)
             {
                 Properties.Settings.Default.NowAcc = int.Parse(comboBox1.SelectedValue.ToString());
+                Properties.Settings.Default.Accname = "IMS" + comboBox1.SelectedValue.ToString().PadLeft(3,'0');
                 //MainParent MP = new MainParent();
                 //MP.Show();
                 this.DialogResult = DialogResult.OK;

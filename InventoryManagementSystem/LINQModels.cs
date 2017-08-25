@@ -101,4 +101,41 @@ namespace InventoryManagementSystem
         public string RKDH入库单号 { get; set; }
     }
 
+    [Table(Name = "XXFP销项发票")]
+    public class XXFP销项发票
+    {
+        [Column]
+        public int XH序号 { get; set; }
+
+        [Column]
+        public string FPDM发票代码 { get; set; }
+
+        [Column]
+        public string FPHM发票号码 { get; set; }
+
+        [Column]
+        public string SH税号 { get; set; }
+
+        [Column]
+        public DateTime KPSJ开票时间 { get; set; }
+
+        [Column]
+        public decimal JE金额 { get; set; }
+
+        [Column]
+        public decimal SE税额 { get; set; }
+
+        [Column]
+        public DateTime BSSJ报送时间 { get; set; }
+
+        [Column]
+        public string MC名称 { get; set; }
+
+        [Column]
+        public int LX类型 { get; set; }
+
+        [Column]
+        public string CKDH出库单号 { get; set; }
+    }
+
 }
