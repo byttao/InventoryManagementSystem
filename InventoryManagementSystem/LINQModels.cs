@@ -138,4 +138,16 @@ namespace InventoryManagementSystem
         public string CKDH出库单号 { get; set; }
     }
 
+    [Table(Name = "JCB基础表")]
+    public class JCB基础表
+    {
+        [Column]
+        public string MC名称 { get; set; }
+
+        [Column]
+        public string SH税号 { get; set; }
+
+        [Column]
+        public DateTime YF月份 { get; set; }
+    }
 }

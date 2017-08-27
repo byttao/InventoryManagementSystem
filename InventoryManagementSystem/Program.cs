@@ -15,7 +15,7 @@ namespace InventoryManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ch_Home());
+            Application.Run(new RKDLR());
         }
     }
 }

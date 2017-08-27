@@ -25,5 +25,11 @@ namespace InventoryManagementSystem
         {
             new XFPimport().Show();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+
+            new XFPimport().Show();
+        }
     }
 }
