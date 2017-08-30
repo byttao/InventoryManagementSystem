@@ -119,8 +119,8 @@ namespace InventoryManagementSystem
             DbTransaction trans = m_dbConnection.BeginTransaction();
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                string sql = "insert into JXFP进项发票 (XH序号,FPDM发票代码,FPHM发票号码,SH税号,KPSJ开票时间,JE金额,SE税额,RZSJ认证时间) values "+
-                    "( "+ (xhmax+i+1) +", '"+ dt.Rows[i][0] + "', '"+ dt.Rows[i][1] + "', '"+ dt.Rows[i][3] + "', '"+ dt.Rows[i][4] + "', "+ dt.Rows[i][5] +" , "+ dt.Rows[i][6] + ", '"+ dt.Rows[i][7] + "')";
+                string sql = "insert into JXFP进项发票 (XH序号,FPDM发票代码,FPHM发票号码,SH税号,KPSJ开票时间,JE金额,SE税额,RZSJ认证时间, LX类型) values " +
+                    "( "+ (xhmax+i+1) +", '"+ dt.Rows[i][0] + "', '"+ dt.Rows[i][1] + "', '"+ dt.Rows[i][3] + "', '"+ dt.Rows[i][4] + "', "+ dt.Rows[i][5] +" , "+ dt.Rows[i][6] + ", '"+ dt.Rows[i][7] + "', 0)";
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
             }

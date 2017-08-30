@@ -8,5 +8,8 @@
     <Setting Name="Accname" Type="System.String" Scope="User">
       <Value Profile="(Default)">IMS001</Value>
     </Setting>
+    <Setting Name="YF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">201701</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

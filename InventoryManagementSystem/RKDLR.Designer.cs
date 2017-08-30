@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbPre = new DevExpress.XtraBars.BarButtonItem();
+            this.bbNext = new DevExpress.XtraBars.BarButtonItem();
+            this.bbSave = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -53,25 +53,31 @@
             this.DJ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.JE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.BZ = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.LookupBZ = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.repositoryItemGridLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.Lrkdh = new System.Windows.Forms.Label();
+            this.Lfpdm = new System.Windows.Forms.Label();
+            this.Lfphm = new System.Windows.Forms.Label();
+            this.Lqysh = new System.Windows.Forms.Label();
+            this.Lfpje = new System.Windows.Forms.Label();
+            this.Lkprq = new System.Windows.Forms.Label();
+            this.Txhqy = new System.Windows.Forms.TextBox();
+            this.Lrkrq = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Lbt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookupBZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2View)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -84,9 +90,10 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1,
-            this.barButtonItem2});
-            this.barManager1.MaxItemId = 2;
+            this.bbPre,
+            this.bbNext,
+            this.bbSave});
+            this.barManager1.MaxItemId = 3;
             // 
             // bar1
             // 
@@ -95,24 +102,33 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbPre, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbNext, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Offset = 2;
             this.bar1.Text = "Tools";
             // 
-            // barButtonItem1
+            // bbPre
             // 
-            this.barButtonItem1.Caption = "上一条";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.ImageUri.Uri = "DoublePrev";
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.bbPre.Caption = "上一条(&P)";
+            this.bbPre.Id = 0;
+            this.bbPre.ImageUri.Uri = "DoublePrev";
+            this.bbPre.Name = "bbPre";
+            this.bbPre.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
-            // barButtonItem2
+            // bbNext
             // 
-            this.barButtonItem2.Caption = "下一条";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.ImageUri.Uri = "DoubleNext";
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.bbNext.Caption = "下一条(&N)";
+            this.bbNext.Id = 1;
+            this.bbNext.ImageUri.Uri = "DoubleNext";
+            this.bbNext.Name = "bbNext";
+            // 
+            // bbSave
+            // 
+            this.bbSave.Caption = "保存(&S)";
+            this.bbSave.Id = 2;
+            this.bbSave.ImageUri.Uri = "Save";
+            this.bbSave.Name = "bbSave";
             // 
             // barDockControlTop
             // 
@@ -142,17 +158,9 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1100, 39);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 520);
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(542, 45);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(45, 18);
-            this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "入库单";
-            // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(877, 42);
+            this.labelControl2.Location = new System.Drawing.Point(815, 45);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(75, 18);
             this.labelControl2.TabIndex = 5;
@@ -180,7 +188,7 @@
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(75, 18);
             this.labelControl5.TabIndex = 5;
-            this.labelControl5.Text = "开票时间：";
+            this.labelControl5.Text = "开票日期：";
             // 
             // labelControl6
             // 
@@ -188,7 +196,7 @@
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(75, 18);
             this.labelControl6.TabIndex = 5;
-            this.labelControl6.Text = "入库时间：";
+            this.labelControl6.Text = "入库日期：";
             // 
             // labelControl7
             // 
@@ -213,7 +221,9 @@
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemGridLookUpEdit1});
+            this.repositoryItemGridLookUpEdit1,
+            this.LookupBZ,
+            this.repositoryItemGridLookUpEdit2});
             this.gridControl1.Size = new System.Drawing.Size(1041, 316);
             this.gridControl1.TabIndex = 6;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -274,6 +284,8 @@
             this.DJ.FieldName = "DJ";
             this.DJ.Name = "DJ";
             this.DJ.OptionsColumn.AllowEdit = false;
+            this.DJ.OptionsColumn.AllowFocus = false;
+            this.DJ.OptionsColumn.TabStop = false;
             this.DJ.Visible = true;
             this.DJ.VisibleIndex = 3;
             // 
@@ -298,6 +310,59 @@
             this.BZ.Visible = true;
             this.BZ.VisibleIndex = 5;
             // 
+            // repositoryItemGridLookUpEdit1
+            // 
+            this.repositoryItemGridLookUpEdit1.AutoHeight = false;
+            this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemGridLookUpEdit1.DisplayMember = "单号";
+            this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
+            this.repositoryItemGridLookUpEdit1.NullText = "";
+            this.repositoryItemGridLookUpEdit1.ShowFooter = false;
+            this.repositoryItemGridLookUpEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.repositoryItemGridLookUpEdit1.ValueMember = "单号";
+            this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // LookupBZ
+            // 
+            this.LookupBZ.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.LookupBZ.AutoHeight = false;
+            this.LookupBZ.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LookupBZ.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DH", "暂估单号"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FPHM", "发票号码"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MC", "名称"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SYSL", "剩余数量", 20, DevExpress.Utils.FormatType.Numeric, "#,##0.00", true, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SYJE", "剩余金额")});
+            this.LookupBZ.DisplayMember = "DH";
+            this.LookupBZ.Name = "LookupBZ";
+            this.LookupBZ.ShowFooter = false;
+            this.LookupBZ.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.LookupBZ.ValueMember = "DH";
+            // 
+            // repositoryItemGridLookUpEdit2
+            // 
+            this.repositoryItemGridLookUpEdit2.AutoHeight = false;
+            this.repositoryItemGridLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemGridLookUpEdit2.Name = "repositoryItemGridLookUpEdit2";
+            this.repositoryItemGridLookUpEdit2.View = this.repositoryItemGridLookUpEdit2View;
+            // 
+            // repositoryItemGridLookUpEdit2View
+            // 
+            this.repositoryItemGridLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit2View.Name = "repositoryItemGridLookUpEdit2View";
+            this.repositoryItemGridLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit2View.OptionsView.ShowGroupPanel = false;
+            // 
             // labelControl9
             // 
             this.labelControl9.Location = new System.Drawing.Point(35, 491);
@@ -308,121 +373,118 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(639, 491);
+            this.labelControl10.Location = new System.Drawing.Point(731, 491);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(75, 18);
             this.labelControl10.TabIndex = 5;
             this.labelControl10.Text = "发票类型：";
             // 
-            // comboBoxEdit1
+            // Lrkdh
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(731, 485);
-            this.comboBoxEdit1.MenuManager = this.barManager1;
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(134, 24);
-            this.comboBoxEdit1.TabIndex = 7;
+            this.Lrkdh.AutoSize = true;
+            this.Lrkdh.Location = new System.Drawing.Point(896, 47);
+            this.Lrkdh.Name = "Lrkdh";
+            this.Lrkdh.Size = new System.Drawing.Size(55, 15);
+            this.Lrkdh.TabIndex = 8;
+            this.Lrkdh.Text = "label1";
             // 
-            // label1
+            // Lfpdm
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(967, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 15);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
+            this.Lfpdm.AutoSize = true;
+            this.Lfpdm.Location = new System.Drawing.Point(812, 98);
+            this.Lfpdm.Name = "Lfpdm";
+            this.Lfpdm.Size = new System.Drawing.Size(55, 15);
+            this.Lfpdm.TabIndex = 8;
+            this.Lfpdm.Text = "label1";
             // 
-            // label2
+            // Lfphm
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(821, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 15);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "label1";
+            this.Lfphm.AutoSize = true;
+            this.Lfphm.Location = new System.Drawing.Point(812, 132);
+            this.Lfphm.Name = "Lfphm";
+            this.Lfphm.Size = new System.Drawing.Size(55, 15);
+            this.Lfphm.TabIndex = 8;
+            this.Lfphm.Text = "label1";
             // 
-            // label3
+            // Lqysh
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(821, 132);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "label1";
+            this.Lqysh.AutoSize = true;
+            this.Lqysh.Location = new System.Drawing.Point(112, 132);
+            this.Lqysh.Name = "Lqysh";
+            this.Lqysh.Size = new System.Drawing.Size(55, 15);
+            this.Lqysh.TabIndex = 8;
+            this.Lqysh.Text = "label1";
             // 
-            // label4
+            // Lfpje
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(112, 133);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "label1";
+            this.Lfpje.AutoSize = true;
+            this.Lfpje.Location = new System.Drawing.Point(112, 493);
+            this.Lfpje.Name = "Lfpje";
+            this.Lfpje.Size = new System.Drawing.Size(55, 15);
+            this.Lfpje.TabIndex = 8;
+            this.Lfpje.Text = "label1";
             // 
-            // label5
+            // Lkprq
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(116, 491);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "label1";
+            this.Lkprq.AutoSize = true;
+            this.Lkprq.Location = new System.Drawing.Point(539, 98);
+            this.Lkprq.Name = "Lkprq";
+            this.Lkprq.Size = new System.Drawing.Size(55, 15);
+            this.Lkprq.TabIndex = 8;
+            this.Lkprq.Text = "label1";
             // 
-            // label6
+            // Txhqy
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(559, 99);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 15);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "label1";
+            this.Txhqy.Location = new System.Drawing.Point(115, 93);
+            this.Txhqy.Name = "Txhqy";
+            this.Txhqy.Size = new System.Drawing.Size(326, 25);
+            this.Txhqy.TabIndex = 9;
             // 
-            // textBox1
+            // Lrkrq
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 25);
-            this.textBox1.TabIndex = 9;
+            this.Lrkrq.AutoSize = true;
+            this.Lrkrq.Location = new System.Drawing.Point(539, 132);
+            this.Lrkrq.Name = "Lrkrq";
+            this.Lrkrq.Size = new System.Drawing.Size(55, 15);
+            this.Lrkrq.TabIndex = 8;
+            this.Lrkrq.Text = "label1";
             // 
-            // label7
+            // comboBox1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(559, 133);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 15);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "label1";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(815, 488);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.TabIndex = 14;
             // 
-            // repositoryItemGridLookUpEdit1
+            // Lbt
             // 
-            this.repositoryItemGridLookUpEdit1.AutoHeight = false;
-            this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
-            this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
-            // 
-            // repositoryItemGridLookUpEdit1View
-            // 
-            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
-            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.Lbt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lbt.BackColor = System.Drawing.Color.Transparent;
+            this.Lbt.Font = new System.Drawing.Font("微软雅黑", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Lbt.ForeColor = System.Drawing.Color.DarkGreen;
+            this.Lbt.Location = new System.Drawing.Point(393, 21);
+            this.Lbt.Name = "Lbt";
+            this.Lbt.Size = new System.Drawing.Size(288, 36);
+            this.Lbt.TabIndex = 19;
+            this.Lbt.Text = "内销 入库单";
+            this.Lbt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // RKDLR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 559);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.Lbt);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Txhqy);
+            this.Controls.Add(this.Lrkrq);
+            this.Controls.Add(this.Lkprq);
+            this.Controls.Add(this.Lfpje);
+            this.Controls.Add(this.Lqysh);
+            this.Controls.Add(this.Lfphm);
+            this.Controls.Add(this.Lfpdm);
+            this.Controls.Add(this.Lrkdh);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl9);
@@ -433,7 +495,6 @@
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -445,9 +506,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LookupBZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,21 +520,20 @@
 
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem bbPre;
+        private DevExpress.XtraBars.BarButtonItem bbNext;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private System.Windows.Forms.TextBox Txhqy;
+        private System.Windows.Forms.Label Lrkrq;
+        private System.Windows.Forms.Label Lkprq;
+        private System.Windows.Forms.Label Lfpje;
+        private System.Windows.Forms.Label Lqysh;
+        private System.Windows.Forms.Label Lfphm;
+        private System.Windows.Forms.Label Lfpdm;
+        private System.Windows.Forms.Label Lrkdh;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.LabelControl labelControl10;
@@ -483,7 +545,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.Columns.GridColumn MC;
         private DevExpress.XtraGrid.Columns.GridColumn DW;
         private DevExpress.XtraGrid.Columns.GridColumn SL;
@@ -492,5 +553,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn BZ;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemGridLookUpEdit1;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private DevExpress.XtraBars.BarButtonItem bbSave;
+        private System.Windows.Forms.Label Lbt;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookupBZ;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemGridLookUpEdit2;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit2View;
     }
 }

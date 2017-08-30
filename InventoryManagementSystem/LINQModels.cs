@@ -12,39 +12,42 @@ namespace InventoryManagementSystem
     public class SqliteDataContext : DataContext
     {
         public SqliteDataContext(string connection, MappingSource mappingSource) :
-        base(connection, mappingSource)
+            base(connection, mappingSource)
         {
         }
+
         public SqliteDataContext(IDbConnection connection, MappingSource mappingSource) :
             base(connection, mappingSource)
         {
         }
+
         public SqliteDataContext(string connectionString) :
             base(new SQLiteConnection(@"Data Source=" + connectionString + @".db;Version=3;"))
         {
         }
+
         public SqliteDataContext(IDbConnection connection) :
             base(connection)
         {
         }
     }
 
-    [Table(Name = "YH用户")]  //特性表示将highscores类与数据库中名称为highscores的表
+    [Table(Name = "YH用户")] //特性表示将highscores类与数据库中名称为highscores的表
     public class YH用户
     {
         //[Column(IsPrimaryKey =true)]
-        [Column]  //特性则对应数据库中的列
+        [Column] //特性则对应数据库中的列
         public string YHMC用户名称 { get; set; }
 
         [Column]
         public string YHMM用户密码 { get; set; }
     }
 
-    [Table(Name = "ZT账套")]  //特性表示将账套存放的表格
+    [Table(Name = "ZT账套")] //特性表示将账套存放的表格
     public class ZT账套
     {
         //[Column(IsPrimaryKey =true)]
-        [Column]  //特性则对应数据库中的列
+        [Column] //特性则对应数据库中的列
         public int XH序号 { get; set; }
 
         [Column]
@@ -150,4 +153,106 @@ namespace InventoryManagementSystem
         [Column]
         public DateTime YF月份 { get; set; }
     }
+
+    [Table(Name = "FPLX发票类型")]
+    public class FPLX发票类型
+    {
+        [Column]
+        public int XH序号 { get; set; }
+
+        [Column]
+        public string LX类型 { get; set; }
+
+        [Column]
+        public string DM代码 { get; set; }
+    }
+    
+    [Table(Name = "RKD入库单")]
+    public class RKD入库单
+    {
+        [Column]
+        public int XH序号 { get; set; }
+
+        [Column]
+        public string YF月份 { get; set; }
+
+        [Column]
+        public int BH编号 { get; set; }
+
+        [Column]
+        public DateTime RKSJ入库时间 { get; set; }
+
+        [Column]
+        public string FPDM发票代码 { get; set; }
+
+        [Column]
+        public string FPHM发票号码 { get; set; }
+
+        [Column]
+        public int GYSXH供应商序号 { get; set; }
+
+        [Column]
+        public decimal JE金额 { get; set; }
+
+        [Column]
+        public decimal SE税额 { get; set; }
+
+        [Column]
+        public int LX类型 { get; set; }
+    }
+
+    [Table(Name = "ZG暂估")]
+    public class ZG暂估
+    {
+        [Column]
+        public int XH序号 { get; set; }
+
+        [Column]
+        public string YF月份 { get; set; }
+
+        [Column]
+        public int BH编号 { get; set; }
+
+        [Column]
+        public int HH行号 { get; set; }
+
+        [Column]
+        public int CH存货 { get; set; }
+
+        [Column]
+        public decimal ZGSHL暂估数量 { get; set; }
+
+        [Column]
+        public decimal ZGJE暂估金额 { get; set; }
+
+        [Column]
+        public decimal DPSL到票数量 { get; set; }
+
+        [Column]
+        public decimal DPJE到票金额 { get; set; }
+
+        [Column]
+        public string FPDM发票代码 { get; set; }
+
+        [Column]
+        public string FPHM发票号码 { get; set; }
+
+        [Column]
+        public int CKDH出库单号 { get; set; }
+
+    }
+
+    [Table(Name = "CH存货")]
+    public class CH存货
+    {
+        [Column]
+        public int XH序号 { get; set; }
+
+        [Column]
+        public string MC名称 { get; set; }
+
+        [Column]
+        public string DW单位 { get; set; }
+    }
+
 }

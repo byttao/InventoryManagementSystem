@@ -46,5 +46,17 @@ namespace InventoryManagementSystem.Properties {
                 this["Accname"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("201701")]
+        public string YF {
+            get {
+                return ((string)(this["YF"]));
+            }
+            set {
+                this["YF"] = value;
+            }
+        }
     }
 }
