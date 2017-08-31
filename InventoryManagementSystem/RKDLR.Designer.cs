@@ -53,11 +53,8 @@
             this.DJ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.JE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.BZ = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.GridlookupBZ = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.LookupBZ = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemGridLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.repositoryItemGridLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.Lrkdh = new System.Windows.Forms.Label();
@@ -70,14 +67,15 @@
             this.Lrkrq = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Lbt = new System.Windows.Forms.Label();
+            this.CCSL = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
+            this.CCJE = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridlookupBZ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookupBZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CCSL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CCJE)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -221,9 +219,9 @@
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemGridLookUpEdit1,
-            this.LookupBZ,
-            this.repositoryItemGridLookUpEdit2});
+            this.GridlookupBZ,
+            this.CCSL,
+            this.CCJE});
             this.gridControl1.Size = new System.Drawing.Size(1041, 316);
             this.gridControl1.TabIndex = 6;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -233,6 +231,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gridView1.Appearance.OddRow.Options.UseBackColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.MC,
             this.DW,
@@ -245,12 +245,19 @@
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsCustomization.AllowColumnMoving = false;
+            this.gridView1.OptionsCustomization.AllowFilter = false;
+            this.gridView1.OptionsCustomization.AllowQuickHideColumns = false;
+            this.gridView1.OptionsCustomization.AllowSort = false;
             this.gridView1.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsMenu.EnableColumnMenu = false;
             this.gridView1.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView1.OptionsNavigation.EnterMoveNextColumn = true;
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
+            this.gridView1.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView1_ValidatingEditor);
+            this.gridView1.RowCountChanged += new System.EventHandler(this.gridView1_RowCountChanged);
             // 
             // MC
             // 
@@ -273,6 +280,9 @@
             // SL
             // 
             this.SL.Caption = "数量";
+            this.SL.ColumnEdit = this.CCSL;
+            this.SL.DisplayFormat.FormatString = "#,##0.0000";
+            this.SL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.SL.FieldName = "SL";
             this.SL.Name = "SL";
             this.SL.Visible = true;
@@ -280,7 +290,11 @@
             // 
             // DJ
             // 
+            this.DJ.AppearanceCell.BackColor = System.Drawing.Color.Silver;
+            this.DJ.AppearanceCell.Options.UseBackColor = true;
             this.DJ.Caption = "单价";
+            this.DJ.DisplayFormat.FormatString = "#,##0.000000";
+            this.DJ.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.DJ.FieldName = "DJ";
             this.DJ.Name = "DJ";
             this.DJ.OptionsColumn.AllowEdit = false;
@@ -292,6 +306,7 @@
             // JE
             // 
             this.JE.Caption = "金额";
+            this.JE.ColumnEdit = this.CCJE;
             this.JE.DisplayFormat.FormatString = "N2";
             this.JE.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.JE.FieldName = "JE";
@@ -304,24 +319,24 @@
             // BZ
             // 
             this.BZ.Caption = "备注";
-            this.BZ.ColumnEdit = this.repositoryItemGridLookUpEdit1;
+            this.BZ.ColumnEdit = this.GridlookupBZ;
             this.BZ.FieldName = "BZ";
             this.BZ.Name = "BZ";
             this.BZ.Visible = true;
             this.BZ.VisibleIndex = 5;
             // 
-            // repositoryItemGridLookUpEdit1
+            // GridlookupBZ
             // 
-            this.repositoryItemGridLookUpEdit1.AutoHeight = false;
-            this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.GridlookupBZ.AutoHeight = false;
+            this.GridlookupBZ.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemGridLookUpEdit1.DisplayMember = "单号";
-            this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
-            this.repositoryItemGridLookUpEdit1.NullText = "";
-            this.repositoryItemGridLookUpEdit1.ShowFooter = false;
-            this.repositoryItemGridLookUpEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.repositoryItemGridLookUpEdit1.ValueMember = "单号";
-            this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
+            this.GridlookupBZ.DisplayMember = "单号";
+            this.GridlookupBZ.Name = "GridlookupBZ";
+            this.GridlookupBZ.NullText = "";
+            this.GridlookupBZ.ShowFooter = false;
+            this.GridlookupBZ.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.GridlookupBZ.ValueMember = "单号";
+            this.GridlookupBZ.View = this.repositoryItemGridLookUpEdit1View;
             // 
             // repositoryItemGridLookUpEdit1View
             // 
@@ -329,39 +344,6 @@
             this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // LookupBZ
-            // 
-            this.LookupBZ.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.LookupBZ.AutoHeight = false;
-            this.LookupBZ.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.LookupBZ.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DH", "暂估单号"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FPHM", "发票号码"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MC", "名称"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SYSL", "剩余数量", 20, DevExpress.Utils.FormatType.Numeric, "#,##0.00", true, DevExpress.Utils.HorzAlignment.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SYJE", "剩余金额")});
-            this.LookupBZ.DisplayMember = "DH";
-            this.LookupBZ.Name = "LookupBZ";
-            this.LookupBZ.ShowFooter = false;
-            this.LookupBZ.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.LookupBZ.ValueMember = "DH";
-            // 
-            // repositoryItemGridLookUpEdit2
-            // 
-            this.repositoryItemGridLookUpEdit2.AutoHeight = false;
-            this.repositoryItemGridLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemGridLookUpEdit2.Name = "repositoryItemGridLookUpEdit2";
-            this.repositoryItemGridLookUpEdit2.View = this.repositoryItemGridLookUpEdit2View;
-            // 
-            // repositoryItemGridLookUpEdit2View
-            // 
-            this.repositoryItemGridLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemGridLookUpEdit2View.Name = "repositoryItemGridLookUpEdit2View";
-            this.repositoryItemGridLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemGridLookUpEdit2View.OptionsView.ShowGroupPanel = false;
             // 
             // labelControl9
             // 
@@ -470,6 +452,26 @@
             this.Lbt.Text = "内销 入库单";
             this.Lbt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // CCSL
+            // 
+            this.CCSL.AutoHeight = false;
+            this.CCSL.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CCSL.DisplayFormat.FormatString = "n4";
+            this.CCSL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.CCSL.Mask.EditMask = "n4";
+            this.CCSL.Name = "CCSL";
+            // 
+            // CCJE
+            // 
+            this.CCJE.AutoHeight = false;
+            this.CCJE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CCJE.DisplayFormat.FormatString = "n2";
+            this.CCJE.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.CCJE.Mask.EditMask = "n2";
+            this.CCJE.Name = "CCJE";
+            // 
             // RKDLR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -506,11 +508,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridlookupBZ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LookupBZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CCSL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CCJE)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,13 +552,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn DJ;
         private DevExpress.XtraGrid.Columns.GridColumn JE;
         private DevExpress.XtraGrid.Columns.GridColumn BZ;
-        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemGridLookUpEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit GridlookupBZ;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
         private System.Windows.Forms.ComboBox comboBox1;
         private DevExpress.XtraBars.BarButtonItem bbSave;
         private System.Windows.Forms.Label Lbt;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LookupBZ;
-        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemGridLookUpEdit2;
-        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit2View;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit CCSL;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit CCJE;
     }
 }

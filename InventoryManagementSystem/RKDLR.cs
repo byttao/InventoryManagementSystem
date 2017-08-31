@@ -38,7 +38,8 @@ namespace InventoryManagementSystem
             ZGDT.Columns.Add("剩余金额", typeof(decimal));
             gridControl1.DataSource = dt;
             datarefresh();
-            this.repositoryItemGridLookUpEdit1.Enter += new System.EventHandler(this.gridLookUpEdit1_Enter);
+            this.GridlookupBZ.Enter += new System.EventHandler(this.gridLookUpEdit1_Enter);
+            
         }
 
         void datarefresh()
@@ -95,8 +96,9 @@ namespace InventoryManagementSystem
                     ZGDT.Rows.Add(dr);
                 }
 
-                SetGridLookUpEditMoreColumnFilter(repositoryItemGridLookUpEdit1);
-                repositoryItemGridLookUpEdit1.DataSource = ZGDT;
+                SetGridLookUpEditMoreColumnFilter(GridlookupBZ);
+                GridlookupBZ.DataSource = ZGDT;
+
             }
         }
 
@@ -200,6 +202,50 @@ namespace InventoryManagementSystem
         private void gridLookUpEdit1_Enter(object sender, EventArgs e)
         {
             BeginInvoke(new MethodInvoker(delegate { ((GridLookUpEdit)sender).ShowPopup(); }));
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if ( e.RowHandle >= 0)
+            {
+                if (gridView1.FocusedColumn.FieldName == "SL" || gridView1.FocusedColumn.FieldName == "JE")
+                {
+                    int handle = e.RowHandle;
+                    decimal sl = this.gridView1.GetRowCellValue(handle, gridView1.Columns["SL"]) == System.DBNull.Value
+                        ? 0
+                        : Convert.ToDecimal(this.gridView1.GetRowCellValue(handle, gridView1.Columns["SL"]));
+                    decimal je = this.gridView1.GetRowCellValue(handle, gridView1.Columns["JE"]) == System.DBNull.Value
+                        ? 0
+                        : Convert.ToDecimal(this.gridView1.GetRowCellValue(handle, gridView1.Columns["JE"]));
+                    if (sl == 0)
+                        this.gridView1.GetDataRow(handle)["DJ"] = 0;
+                    else
+                        this.gridView1.GetDataRow(handle)["DJ"] = je/sl;
+                }
+            }
+        }
+
+        private void gridView1_RowCountChanged(object sender, EventArgs e)
+        {
+            int handle = gridView1.RowCount - 2;
+            if (handle>=0)
+            {
+                decimal sl = this.gridView1.GetRowCellValue(handle, gridView1.Columns["SL"]) == System.DBNull.Value
+                    ? 0
+                    : Convert.ToDecimal(this.gridView1.GetRowCellValue(handle, gridView1.Columns["SL"]));
+                decimal je = this.gridView1.GetRowCellValue(handle, gridView1.Columns["JE"]) == System.DBNull.Value
+                    ? 0
+                    : Convert.ToDecimal(this.gridView1.GetRowCellValue(handle, gridView1.Columns["JE"]));
+                if (sl == 0)
+                    this.gridView1.GetDataRow(handle)["DJ"] = 0;
+                else
+                    this.gridView1.GetDataRow(handle)["DJ"] = je / sl;
+            }
+        }
+
+        private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+
         }
     }
 }
